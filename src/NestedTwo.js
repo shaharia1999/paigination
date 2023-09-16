@@ -11,6 +11,7 @@ const NestedTwo = () => {
 
   const [options, setOptions] = useState(initialOptions);
   const [selectedValues, setSelectedValues] = useState([initialOptions[0]]);
+  console.log(selectedValues);
 
   const obj = { value: 'shaharia', label: 'shaharia' };
 
@@ -32,6 +33,7 @@ const NestedTwo = () => {
         className="basic-multi-select"
         classNamePrefix="select"
         key={options.length} // Add a key to force re-render when options change
+        onChange={(selectedOptions) => setSelectedValues(selectedOptions)}
       />
     </div>
   );
