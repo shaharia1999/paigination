@@ -10,30 +10,39 @@ const NestedTwo = () => {
   ];
 
   const [options, setOptions] = useState(initialOptions);
-  const [selectedValues, setSelectedValues] = useState([initialOptions[0]]);
-  console.log(selectedValues);
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [newDefaultValue, setNewDefaultValue] = useState(null); // Store the new default value
 
   const obj = { value: 'shaharia', label: 'shaharia' };
 
-  const HandlePush = () => {
-    setOptions([obj, ...options]);
-    setSelectedValues([obj]); // Set the default value when adding a new option
-    // alert('Option added successfully');
-    console.log(options)
+  const handlePush = () => {
+    setNewDefaultValue(obj);
+    setSelectedValues([obj]);
+  };
+
+  const handleSelectBlur = () => {
+    // Check if the new default value is selected
+    if (newDefaultValue && !selectedValues.some((selected) => selected.value === newDefaultValue.value)) {
+      // Remove the new default value from the options
+      const updatedOptions = options.filter((option) => option.value !== newDefaultValue.value);
+      setOptions(updatedOptions);
+      setNewDefaultValue(null); // Reset the new default value
+    }
   };
 
   return (
     <div>
-      <h1 onClick={HandlePush}>Two</h1>
+      <h1 onClick={handlePush}>Two</h1>
       <Select
-        defaultValue={selectedValues}
+        value={selectedValues}
         isMulti
         name="colors"
         options={options}
         className="basic-multi-select"
         classNamePrefix="select"
-        key={options.length} // Add a key to force re-render when options change
+        key={options.length}
         onChange={(selectedOptions) => setSelectedValues(selectedOptions)}
+        onBlur={handleSelectBlur}
       />
     </div>
   );
