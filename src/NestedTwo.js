@@ -18,8 +18,9 @@ const NestedTwo = () => {
   const handlePush = () => {
     setNewDefaultValue(obj);
     setSelectedValues([obj]);
+   
   };
-
+  console.log(selectedValues)
   const handleSelectBlur = () => {
     // Check if the new default value is selected
     if (newDefaultValue && !selectedValues.some((selected) => selected.value === newDefaultValue.value)) {
@@ -34,6 +35,7 @@ const NestedTwo = () => {
     <div>
       <h1 onClick={handlePush}>Two</h1>
       <Select
+     
         value={selectedValues}
         isMulti
         name="colors"
@@ -43,6 +45,7 @@ const NestedTwo = () => {
         key={options.length}
         onChange={(selectedOptions) => setSelectedValues(selectedOptions)}
         onBlur={handleSelectBlur}
+      
       />
     </div>
   );
