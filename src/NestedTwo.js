@@ -23,19 +23,13 @@ const NestedTwo = () => {
   console.log(selectedValues)
   const handleSelectBlur = () => {
     // Check if the new default value is selected
-    // if (newDefaultValue && !selectedValues.some((selected) => selected.value === newDefaultValue.value)) 
-    // Check if the new default value is selected
-    // if (newDefaultValue && !selectedValues.some((selected) =>{
-    //   console.log(selected);
-    // } )) 
-    // {
-     
+    if (newDefaultValue && !selectedValues.some((selected) => selected.value === newDefaultValue.value)) {
       // Remove the new default value from the options
       const updatedOptions = options.filter((option) => option.value !== newDefaultValue.value);
       setOptions(updatedOptions);
       setNewDefaultValue(null); // Reset the new default value
     }
-  // };
+  };
 
   return (
     <div>
