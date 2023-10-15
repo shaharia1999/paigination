@@ -16,14 +16,14 @@ const Nested = () => {
   
     useEffect(()=>{
         setNumber(1)
-      fetch(` https://jsonplaceholder.typicode.com/posts/${num}`)
-      .then(response => response.json())
-      .then(json => {
-        // console.log(json)
-        setData(json)
-        // console.log(json.length)
-        setTotal(json.length)
-      })
+    //   fetch(` https://jsonplaceholder.typicode.com/posts/${num}`)
+    //   .then(response => response.json())
+    //   .then(json => {
+    //     // console.log(json)
+    //     setData(json)
+    //     // console.log(json.length)
+    //     setTotal(json.length)
+    //   })
     },[num]);
     const indexofLastPage= page + postPerPage;
     // console.log(indexofLastPage)

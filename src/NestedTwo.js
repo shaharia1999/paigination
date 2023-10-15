@@ -20,7 +20,7 @@ const NestedTwo = () => {
     setSelectedValues([obj]);
    
   };
-  console.log(selectedValues)
+  // console.log(selectedValues)
   const handleSelectBlur = () => {
     // Check if the new default value is selected
     if (newDefaultValue && !selectedValues.some((selected) => selected.value === newDefaultValue.value)) {
