@@ -10,6 +10,7 @@ import { QueryClient ,QueryClientProvider} from 'react-query';
 // import { store } from './app/store'
 import { Provider } from 'react-redux'
 import { store } from './store';
+import Card from './Card';
 
 function App() {
   const queryClient = new QueryClient()
@@ -24,6 +25,8 @@ function App() {
       <Route path='/a' element={<Nested></Nested>}>
         <Route path='1' element={<NestedOne/>}></Route>
         <Route path='2' element={<NestedTwo/>}></Route>
+        <Route path='3' element={<Card/>}></Route>
+
       </Route>
    </Routes>
    </QueryClientProvider>

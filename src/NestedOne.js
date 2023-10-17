@@ -6,12 +6,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment, incrementByAmount } from './counterSlice';
 import { fetchPosts } from './PostSlice';
 import Title from 'antd/es/skeleton/Title';
+import "../src/App.css"
+import { add } from './CardSlice';
 
 const NestedOne = () => {
   const [data, setData] = useOutletContext();
   const [ids, setId] = useState(0);
   const count = useSelector((state) => state.shaharia.value)
+
   const {Loading,error,posts} = useSelector((state) => state.posts)
+  console.log(posts);
   
   const dispatch = useDispatch()
   useEffect(() => {
@@ -41,7 +45,10 @@ const NestedOne = () => {
     if(data){
         // console.log(data.title);
     }
-
+const Add=(Title)=>{
+ alert('Add sucessfuly')
+  dispatch(add(Title))
+}
   return (
     <div>
       <h1>one</h1>
@@ -66,11 +73,20 @@ const NestedOne = () => {
       {isError && <p>Error: </p>} 
       {/* {todo? "hlw":'hi'} */}
       {/* Render your data here */}
-      <div>{posts.map((Title)=>{
+      <div >
+      <div className='Grid'>
+        {posts.map((Title)=>{
         return(
-          <h1>{Title.title}</h1>
+          <div className='Card'>
+                <h1>{Title.title}</h1>
+                <p>{Title.body}</p>
+                <button onClick={()=>Add(Title)}>Add Card</button>
+          </div>
+      
         )
       })}</div>
+      
+      </div>
     </div>
   );
 };
