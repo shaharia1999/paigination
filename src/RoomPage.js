@@ -13,16 +13,6 @@ const RoomPage = () => {
  const zp = ZegoUIKitPrebuilt.create(kitToken);
  zp.joinRoom({
     container: element,
-    sharedLinks: [
-      {
-        name: 'Personal link',
-        url:
-         window.location.protocol + '//' + 
-         window.location.host + window.location.pathname +
-          '?roomID=' +
-          roomId,
-      },
-    ],
     scenario: {
      mode: ZegoUIKitPrebuilt.VideoConference,
     },
