@@ -11,6 +11,7 @@ const RoomPage = () => {
  const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomId,'shaharia',Date.now().toString());
  // Create instance object from Kit Token.
  const zp = ZegoUIKitPrebuilt.create(kitToken);
+ 
  zp.joinRoom({
     container: element,
     scenario: {
