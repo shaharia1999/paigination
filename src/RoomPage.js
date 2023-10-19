@@ -8,12 +8,21 @@ const RoomPage = () => {
          // generate Kit Token
  const appID =581899637 ;
  const serverSecret = "1e7a4c9bfe7a94abc643d87f306cf6e7";
- const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomId,'shaharia',Date.now().toString());
+ const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomId,Date.now().toString(),'shaharia');
  // Create instance object from Kit Token.
  const zp = ZegoUIKitPrebuilt.create(kitToken);
- 
  zp.joinRoom({
     container: element,
+    sharedLinks: [
+      {
+        name: 'Personal link',
+        url:
+         window.location.protocol + '//' + 
+         window.location.host + window.location.pathname +
+          '?roomID=' +
+          roomId,
+      },
+    ],
     scenario: {
      mode: ZegoUIKitPrebuilt.VideoConference,
     },
