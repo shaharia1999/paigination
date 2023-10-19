@@ -12,14 +12,15 @@ const NestedTwo = () => {
   const [options, setOptions] = useState(initialOptions);
   const [selectedValues, setSelectedValues] = useState([initialOptions[0]]);
   console.log(selectedValues);
-
   const obj = { value: 'shaharia', label: 'shaharia' };
 
   const HandlePush = () => {
-    setOptions([obj, ...options]);
+    // Filter out the newly added item from the options array
+    const updatedOptions = options.filter(option => option.value !== obj.value);
+    
+    setOptions([obj, ...updatedOptions]);
     setSelectedValues([obj]); // Set the default value when adding a new option
-    // alert('Option added successfully');
-    console.log(options)
+    console.log(options);
   };
 
   return (

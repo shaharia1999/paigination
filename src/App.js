@@ -2,18 +2,20 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 // import { Pagination } from 'antd';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Nested from './Nested';
 import NestedOne from './NestedOne';
 import NestedTwo from './NestedTwo';
+import Home from './Home';
+import RoomPage from './RoomPage';
 
 function App() {
-
-
 
   return (
     <div className="App">
    <Routes>
+    <Route path='/' element={<Home/>}></Route>
+    <Route path='/room/:roomId' element={<RoomPage/>}></Route>
       <Route path='/a' element={<Nested></Nested>}>
         <Route path='1' element={<NestedOne/>}></Route>
         <Route path='2' element={<NestedTwo/>}></Route>
