@@ -1,18 +1,6 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-// import { Pagination } from 'antd';
-<<<<<<< HEAD
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import Nested from './Nested';
-import NestedOne from './NestedOne';
-import NestedTwo from './NestedTwo';
-import Home from './Home';
-import RoomPage from './RoomPage';
-
-function App() {
-=======
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nested from './Nested';
 import NestedOne from './NestedOne';
 import NestedTwo from './NestedTwo';
@@ -21,11 +9,21 @@ import { QueryClient ,QueryClientProvider} from 'react-query';
 import { Provider } from 'react-redux'
 import { store } from './store';
 import Card from './Card';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import RoomPage from './RoomPage';
+// import { Pagination } from 'antd';
+
+
+
+
+
+
 
 function App() {
   const queryClient = new QueryClient()
 
->>>>>>> 6c95ca5ce24732e890ed3fb04148f19e29ba8766
+
 
   return (
     <div className="App">
